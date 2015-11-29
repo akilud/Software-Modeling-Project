@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+
+<p>Welcome to SAM2017</p>
+
+{% if user.is_authenticated  %}
+
+<p>Is this is a user s{{user.profile.is_admin}} </p>
+<p><img src="{% static  'img/hb.jpg' %}" alt="My image"/></p>
+
+
+
+    {% if user.profile.is_admin  %}
+
+        <p>Welcome Admin : {{ msg }}
+        <p><img src="{% static  'img/hb.jpg' %}" alt="My image"/></p>
+
+     {% endif %}
+
+{% endif %}
+
+{% endblock %}

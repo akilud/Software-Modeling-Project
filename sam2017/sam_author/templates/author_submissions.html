@@ -1,0 +1,21 @@
+{% extends "author_base.html" %}
+{% block content %}
+{% load staticfiles %}
+
+{% if user.is_authenticated  %}
+
+<p> Author </p>
+
+    {% if user.profile.is_author  %}
+
+        <p>
+
+            Submissions coming soon !!!
+
+        </p>
+
+     {% endif %}
+
+{% endif %}
+
+{% endblock %}

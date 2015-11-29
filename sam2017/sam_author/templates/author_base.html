@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block navlinks %}
+     <li><a href="{% url 'authorNewSubmission' %}">New Submissions</a></li>
+     <li><a href="#">Revise Submission</a></li>
+     <li><a href="{% url 'authorViewSubmission' %}">View Submissions</a></li>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% block admin_body %}
+
+    {% endblock %}
+{% endblock %}

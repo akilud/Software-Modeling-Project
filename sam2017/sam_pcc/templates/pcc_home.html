@@ -1,0 +1,21 @@
+{% extends "pcc_base.html" %}
+{% block content %}
+{% load staticfiles %}
+
+{% if user.is_authenticated  %}
+
+<p> Author </p>
+
+    {% if user.profile.is_pcc  %}
+
+        <p>
+
+            This your page PCC
+
+        </p>
+
+     {% endif %}
+
+{% endif %}
+
+{% endblock %}

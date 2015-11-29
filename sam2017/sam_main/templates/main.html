@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+
+     <div class="page-header">
+         <h1>Welcome to SAM 2017!!!</h1>
+    </div>
+    <div class="well">
+         <p>
+             Welcome to the Software Architecture Mining Workshop 2017. The Software Architecture Mining is an
+             international software engineering conference which is schedule to be held on February 2016.
+             <br /><br />
+            You are welcome to submit research paper for this topic.
+        </p>
+    </div>
+{% if not user.is_authenticated  %}
+
+    <p>
+        Kindly Register to participate in SAM 2016. <br/>
+        Click on the Register button to register:
+        <a href="{% url 'register' %}" class="btn btn-lg btn-primary" role="button">Register</a>
+    </p>
+
+    <p>
+        If you are already registered then login with your  "Username" and "Password".
+    </p>
+{% endif %}
+
+{% endblock %}

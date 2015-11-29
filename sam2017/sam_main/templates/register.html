@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles %}
+
+
+    <h3>Please fill the below details to register!!</h3>
+
+    <form action="/register/" method="post" class="form-horizontal">{% csrf_token %}
+        <h4>Use a local account to log in.</h4>
+        <div>
+            {{ form }}
+            <input type="submit" value="Register" class="btn btn-success" />
+        </div>
+    </form>
+
+{% endblock %}
+</body>

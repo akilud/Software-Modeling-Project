@@ -1,0 +1,23 @@
+{% extends "author_base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+{% if user.is_authenticated  %}
+
+<p> Please fill the below details and upload your paper </p>
+
+    {% if user.profile.is_author  %}
+
+        <form action="/authorNewSubmission/" method="post" class="form-horizontal">{% csrf_token %}
+			<h4>Use a local account to log in.</h4>
+			<div>
+				{{ form }}
+            <input type="submit" value="Submit" class="btn btn-success" />
+			</div>
+    </form>
+     {% endif %}
+
+{% endif %}
+
+{% endblock %}

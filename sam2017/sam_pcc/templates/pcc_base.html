@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block navlinks %}
+     <li><a href="{% url 'adminManageUser' %}">View PCMs</a></li>
+     <li><a href="#">Assign Papers</a></li>
+     <li><a href="#">View Reviews</a></li>
+     <li><a href="#">Reports</a></li>
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    {% block admin_body %}
+
+    {% endblock %}
+{% endblock %}

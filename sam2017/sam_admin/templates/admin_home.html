@@ -1,0 +1,30 @@
+{% extends "admin_base.html" %}
+
+{% block admin_body %}
+{% load staticfiles %}
+
+<p>Welcome to SAM2017 Admin</p>
+
+
+
+
+{% if user.is_authenticated  %}
+
+<p>Is this is a user s{{user.profile.is_admin}} </p>
+
+
+
+
+    {% if user.profile.is_admin  %}
+
+        <p>
+
+            This your page admin
+
+        </p>
+
+     {% endif %}
+
+{% endif %}
+
+{% endblock %}

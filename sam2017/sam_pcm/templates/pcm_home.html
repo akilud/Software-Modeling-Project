@@ -1,0 +1,20 @@
+{% extends "pcm_base.html" %}
+{% block content %}
+{% load staticfiles %}
+
+
+{% if user.is_authenticated  %}
+
+    {% if user.profile.is_pcm %}
+
+        <p>
+
+            This your page PCM
+
+        </p>
+
+     {% endif %}
+
+{% endif %}
+
+{% endblock %}

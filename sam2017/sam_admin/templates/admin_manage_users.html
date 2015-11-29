@@ -1,0 +1,160 @@
+{% extends "admin_base.html" %}
+
+{% block admin_body %}
+    {% load staticfiles %}
+
+
+    {% if user.is_authenticated  %}
+        <p>Hello Admin</p>
+
+        <br/><br/><br/>
+
+
+        <div class="page-header">
+            <h3>Admins</h3>
+        </div>
+
+        {% if  admin_set %}
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>User Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Active</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for instance in admin_set %}
+
+                        <tr>
+                            <td>{{instance.username}}</td>
+                            <td>{{instance.first_name}} {{ instance.last_name }}</td>
+                            <td>{{instance.email}}</td>
+                            <td>{{instance.is_active}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Currently you are the only admin</p>
+        {% endif %}
+
+
+        <br/><br/><br/>
+
+
+        <div class="page-header">
+         <h3>PCC</h3>
+        </div>
+
+        {% if  pcc_set %}
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>User Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Active</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for instance in pcc_set %}
+
+                        <tr>
+                            <td>{{instance.username}}</td>
+                            <td>{{instance.first_name}} {{ instance.last_name }}</td>
+                            <td>{{instance.email}}</td>
+                            <td>{{instance.is_active}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Currently there are no PCCs</p>
+        {% endif %}
+
+        <br/><br/><br/>
+
+        <div class="page-header">
+         <h3>PCM</h3>
+        </div>
+
+        {% if  pcm_set %}
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>User Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Active</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for instance in pcm_set %}
+
+                        <tr>
+                            <td>{{instance.username}}</td>
+                            <td>{{instance.first_name}} {{ instance.last_name }}</td>
+                            <td>{{instance.email}}</td>
+                            <td>{{instance.is_active}}</td>
+                            <td>
+
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Currently there are no PCMs</p>
+        {% endif %}
+        <br/><br/><br/>
+
+
+        <div class="page-header">
+         <h3>Authors</h3>
+        </div>
+
+        {% if  auth_set %}
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>User Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Active</th>
+                    <th>Assign Role</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for instance in auth_set %}
+
+                        <tr>
+                            <td>{{instance.username}}</td>
+                            <td>{{instance.first_name}} {{ instance.last_name }}</td>
+                            <td>{{instance.email}}</td>
+                            <td>{{instance.is_active}}</td>
+                            <td>
+                                <a href="{% url 'admin_makePcc' instance.id %}" class="btn btn-lg btn-primary" role="button">Make PCC</a>
+                                <a href="{% url 'admin_makePcm' instance.id %}" class="btn btn-lg btn-primary" role="button">Make PCM</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Currently there are no Authors registered in the system</p>
+        {% endif %}
+
+
+    {% endif %}
+
+{% endblock %}
