@@ -9,7 +9,7 @@
 
     {% if user.profile.is_author  %}
 
-        <form action="/authorNewSubmission/" method="post" class="form-horizontal">{% csrf_token %}
+        <form action="/authorNewSubmission/" method="post" enctype="multipart/form-data" class="form-horizontal">{% csrf_token %}
 			<h4>Use a local account to log in.</h4>
 			<div>
 				{{ form }}

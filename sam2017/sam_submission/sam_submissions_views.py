@@ -21,7 +21,7 @@ def author_new_submission(request):
         new_paper = Paper.objects.create(submission_id=new_sub,
                                         revision=0,
                                         is_revised=False,
-                                        paper=form.data['paper']
+                                        paper=request.FILES['paper']
                                         )
         new_paper.save()
         return HttpResponseRedirect('/authorViewSubmission')

@@ -2,16 +2,39 @@
 {% block content %}
 {% load staticfiles %}
 
-
+ <style>
+                    table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                    }
+                    th, td {
+                    padding: 10px;
+                    }
+                    th {
+                    text-align: left;
+                    }
+                </style>
 {% if user.is_authenticated  %}
 
     {% if user.profile.is_pcm %}
 
-        <p>
 
-            This your page PCM
 
-        </p>
+           <H2> Submissions </H2>
+            <br />
+            <table>
+                <tr>
+                    <th>Topic</th>
+                    <th>Author name(s)</th>
+                </tr>
+                {% for p in papers %}
+                <tr>
+                   <td> {{ p.submission_id.topic}}</td>
+                   <td> {{ p.submission_id.author_list }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+
 
      {% endif %}
 
